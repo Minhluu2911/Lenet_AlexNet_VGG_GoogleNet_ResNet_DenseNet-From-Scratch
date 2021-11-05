@@ -6,8 +6,6 @@ import pandas as pd
 import numpy as np
 import math
 
-%matplotlib inline
-
 # function for showing image in our dataset
 def display(X_train, Y_train, CLASS_NAMES=None, no_show = 9):
   fig = plt.figure(figsize=(8, 8))
