@@ -36,7 +36,7 @@ class GoogleNet:
     max_pool = tfl.Conv2D(filters=f_pp, kernel_size=1, padding='SAME', activation='relu', kernel_initializer=kernel_init, bias_initializer=bias_init)(max_pool)
     
     # concatenate
-    output = tfl.Concatenate(axis=-1)([conv1x1, conv3x3, conv5x5, max_pool])
+    output = tfl.Concatenate(axis=3)([conv1x1, conv3x3, conv5x5, max_pool])
     
     return output
 
