@@ -48,7 +48,7 @@ class GoogleNet:
     bias_init = self.bias_init
     
     # size image = ((n + 2p - f)/s) + 1
-    input_layer = tfl.Input(shape=(224, 224, 3))
+    input_layer = keras.Input(shape=(224, 224, 3))
     
     # Conv 7x7/2
     X = tfl.Conv2D(filters=64, kernel_size=7, strides=2, padding='SAME', activation='relu', kernel_initializer=kernel_init, bias_initializer=bias_init)(input_layer)
