@@ -79,7 +79,7 @@ class GoogleNet:
     X = self.inception_block(X, f_1x1, f_3x3_reduce, f_3x3, f_5x5_reduce, f_5x5, f_pp)
     
     # Softmax 0
-    X1 = tfl.AveragePooling2D(pool_size=5, strides=3, padding='VALID')(X)
+    X1 = tfl.AveragePooling2D(pool_size=5, strides=3, padding='SAME')(X) # if you train on image shape (224,224,3) -> change padding to VALID
     X1 = tfl.Conv2D(filters=128, kernel_size=1, strides=1, padding='SAME', activation='relu')(X1)
     X1 = tfl.Flatten()(X1)
     X1 = tfl.Dense(units=1024, activation='relu')(X1)
@@ -99,7 +99,7 @@ class GoogleNet:
     X = self.inception_block(X, f_1x1, f_3x3_reduce, f_3x3, f_5x5_reduce, f_5x5, f_pp)
     
     # Softmax 1
-    X2 = tfl.AveragePooling2D(pool_size=5, strides=3, padding='VALID')(X)
+    X2 = tfl.AveragePooling2D(pool_size=5, strides=3, padding='SAME')(X) # if you train on image shape (224,224,3) -> change padding to VALID
     X2 = tfl.Conv2D(filters=128, kernel_size=1, strides=1, padding='SAME', activation='relu')(X2)
     X2 = tfl.Flatten()(X2)
     X2 = tfl.Dense(units=1024, activation='relu')(X2)
