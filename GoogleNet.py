@@ -32,8 +32,8 @@ class GoogleNet:
     conv5x5 = tfl.Conv2D(filters=f_5x5, kernel_size=3, padding='SAME', activation='relu', kernel_initializer=kernel_init, bias_initializer=bias_init)(conv5x5)
     
     # max pooling path
-    max_pool = tfl.MaxPool2D(pool_size=(3,3), padding='SAME')(input_layer)
-    max_pool = tfl.Conv2D(filters=f_pp, kernel_size=1, padding='SAME', activation='relu', kernel_initializer=kernel_init, bias_initializer=bias_init)(max_pool)
+    max_pool = tfl.MaxPool2D(pool_size=(3,3), strides=1 ,padding='SAME')(input_layer)
+    max_pool = tfl.Conv2D(filters=f_pp, kernel_size=1, strides = 1 ,padding='SAME', activation='relu', kernel_initializer=kernel_init, bias_initializer=bias_init)(max_pool)
     
     # concatenate
     output = tfl.Concatenate(axis=3)([conv1x1, conv3x3, conv5x5, max_pool])
