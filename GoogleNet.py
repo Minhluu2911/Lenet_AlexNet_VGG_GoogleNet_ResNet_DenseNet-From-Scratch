@@ -36,7 +36,7 @@ class GoogleNet:
     max_pool = tfl.Conv2D(filters=f_pp, kernel_size=1, strides = 1 ,padding='SAME', activation='relu', kernel_initializer=kernel_init, bias_initializer=bias_init)(max_pool)
     
     # concatenate
-    output = tfl.Concatenate(axis=3)([conv1x1, conv3x3, conv5x5, max_pool])
+    output = tfl.Concatenate(axis=-1)([conv1x1, conv3x3, conv5x5, max_pool])
     
     return output
 
@@ -72,7 +72,7 @@ class GoogleNet:
     X = self.inception_block(X, f_1x1, f_3x3_reduce, f_3x3, f_5x5_reduce, f_5x5, f_pp)
 
     # Max pool 3x3/2
-    X = tfl.MaxPool2D(pool_size=3, strides=2, padding='SAME')
+    X = tfl.MaxPool2D(pool_size=3, strides=2, padding='SAME')(X)
     
     # Inception 4a
     [f_1x1, f_3x3_reduce, f_3x3, f_5x5_reduce, f_5x5, f_pp] = [192, 96, 208, 16, 48, 64]
@@ -111,7 +111,7 @@ class GoogleNet:
     X = self.inception_block(X, f_1x1, f_3x3_reduce, f_3x3, f_5x5_reduce, f_5x5, f_pp)
     
     # Max pool 3x3/2
-    X = tfl.MaxPool2D(pool_size=3, strides=2, padding='SAME')
+    X = tfl.MaxPool2D(pool_size=3, strides=2, padding='SAME')(X)
     
     # Inception 5a
     [f_1x1, f_3x3_reduce, f_3x3, f_5x5_reduce, f_5x5, f_pp] = [256, 160, 320, 32, 128, 128]
