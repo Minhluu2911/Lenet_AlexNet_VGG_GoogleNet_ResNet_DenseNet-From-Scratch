@@ -130,7 +130,8 @@ class GoogleNet:
     # Last output Softmax 2
     X = tfl.Dense(units=10, activation='softmax', name='softmax2')(X)
     
-    self.model = tfl.Model(input_layer, [X, X1, X2], name='GoogleNet')
+    
+    self.model = tf.keras.Model(input_layer, [X, X1, X2], name='GoogleNet')
     
     self.model.compile(loss='sparse_categorical_crossentropy', optimizer='sgd', metrics=['accuracy']) 
 
