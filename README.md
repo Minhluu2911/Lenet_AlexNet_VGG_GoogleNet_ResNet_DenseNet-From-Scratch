@@ -12,4 +12,4 @@ I hope this repository can also help everyone who are studying about these netwo
 - [x] VGG
 - [x] GoogleNet
 - [x] ResNet
-- [x] DenseNet
+- [ ] DenseNet
