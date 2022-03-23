@@ -10,6 +10,6 @@ I hope this repository can also help everyone who are studying about these netwo
 - [x] LeNet
 - [x] AlexNet
 - [x] VGG
-- [ ] GoogleNet
-- [ ] ResNet
-- [ ] DenseNet
+- [x] GoogleNet
+- [x] ResNet
+- [x] DenseNet
